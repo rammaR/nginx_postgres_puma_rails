@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Flavor:</strong>
+  <%= @cooky.flavor %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @cooky.price %>
+</p>
+
+<%= link_to 'Edit', edit_cooky_path(@cooky) %> |
+<%= link_to 'Back', cookies_path %>

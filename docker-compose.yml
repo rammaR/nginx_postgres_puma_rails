@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  web:
+    image: nginx
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    ports:
+    - 80:80
+    depends_on:
+      - app
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    ports:
+      - "53043:5432"
+  app:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec puma -C config/puma.rb"
+    volumes:
+      - ./rails_app:/rails_app
+    #ports: - "3000:3000"
+    environment:
+      - RAILS_ENV=${RAILS_ENV}
+      - RAILS_APP_DATABASE_PASSWORD=${POSTGRES_PASSWORD}
+      - RAILS_APP_DATABASE_USER=${POSTGRES_USER}
+    depends_on:
+      - db
