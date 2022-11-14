@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Cookie do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  it "this cookie can have flavor chocolat" do
+    subject.flavor = 'Chocolat'
+    expect(subject).to have_attributes(flavor: 'Chocolat')
+  end
+  
 end

@@ -1,0 +1,2 @@
+class Arvore < ApplicationRecord
+end

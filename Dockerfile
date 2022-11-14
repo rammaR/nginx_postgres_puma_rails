@@ -13,9 +13,10 @@ COPY rails_app/Gemfile.lock /rails_app/Gemfile.lock
 RUN bundle install
 
 # Add a script to be executed every time the container starts.
-COPY rails_app/entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+# COPY rails_app/entrypoint.sh /usr/bin/
+# RUN chmod +x /usr/bin/entrypoint.sh
+# ENTRYPOINT ["entrypoint.sh"]
+
 EXPOSE 3000
 
 # RUN SECRET_KEY_BASE=1 RAILS_ENV=production bundle exec rake assets:precompile
