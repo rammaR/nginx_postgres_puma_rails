@@ -16,7 +16,9 @@ services:
       image: 'redis:5-alpine'
       command: redis-server
       ports:
-        - '6379:6379'
+        - "${REDIS_PORT}:${REDIS_PORT}"
+      env_file:
+        - .env
       volumes:
         - redis:/data
 
@@ -27,6 +29,7 @@ services:
       - ./rails_app:/rails_app
     env_file:
       - .env
+    #entrypoint: sidekiq-entrypoint.sh
     depends_on:
       - db
       - redis

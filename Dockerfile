@@ -18,6 +18,8 @@ RUN bundle install
 # RUN chmod +x /usr/bin/entrypoint.sh
 # ENTRYPOINT ["entrypoint.sh"]
 
+#COPY sidekiq-entrypoint.sh /rails_app/
+
 EXPOSE 3000
 
 # RUN SECRET_KEY_BASE=1 RAILS_ENV=production bundle exec rake assets:precompile
