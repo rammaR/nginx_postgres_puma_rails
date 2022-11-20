@@ -1,4 +1,5 @@
-# syntax=docker/dockerfile:1
+#syntax=docker/dockerfile:1
+
 FROM ruby:2.5
 
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -

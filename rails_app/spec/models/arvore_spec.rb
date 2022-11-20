@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+RSpec::Matchers.define_negated_matcher :not_have_attibutes, :have_attributes
+
 describe Arvore , type: :model do
 
   context "quando ainda pequena" do
@@ -29,6 +31,11 @@ describe Arvore , type: :model do
        subject.name = "Eucalipto"
        expect(subject).to have_attributes(name: "Eucalipto")
     end    
+
+    it 'Tree cannot be more than 10000 years old' do
+      subject.age = "1000"
+      expect(subject).to not_have_attibutes(age: "100000")
+    end
 
   end
 

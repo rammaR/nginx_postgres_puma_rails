@@ -1,3 +1,5 @@
+RSpec::Matchers.define_negated_matcher :not_included, :include
+
 describe Array.new do
     context 'Quando arrays' do
         it "Array deve começar vazio" do
@@ -16,6 +18,10 @@ describe Array.new do
             is_expected.to include(5)
             is_expected.to match_array([2,3,4,5])
             is_expected.not_to include(1)
+        end
+
+        it "Array não deve conter o numero 50" do
+            is_expected.to not_included(50)
         end
     end
 end

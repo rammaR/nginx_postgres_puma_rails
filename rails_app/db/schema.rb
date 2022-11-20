@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221113224532) do
+ActiveRecord::Schema.define(version: 20221119160927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "body"
+    t.string "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "arvores", force: :cascade do |t|
     t.string "root_resistance"
@@ -33,6 +40,12 @@ ActiveRecord::Schema.define(version: 20221113224532) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cookies", force: :cascade do |t|
     t.string "flavor"
     t.float "price"
@@ -44,12 +57,43 @@ ActiveRecord::Schema.define(version: 20221113224532) do
     t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "genre", default: 0
+  end
+
+  create_table "pessoas", force: :cascade do |t|
+    t.string "name"
+    t.string "age"
+    t.string "genre"
+    t.string "birthday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "content"
+  end
+
+  create_table "publications", force: :cascade do |t|
+    t.integer "status", default: 0
+    t.integer "integer", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "lastname"
     t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer "vote_type", default: 0
+    t.integer "integer", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

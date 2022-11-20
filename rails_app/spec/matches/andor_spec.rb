@@ -1,4 +1,4 @@
-require 'spec/helpers/fruta_helper_spec'
+require './spec/helpers/fruta_helper_spec'
 
 describe 'Ruby on Rails' do
 
@@ -13,9 +13,5 @@ describe 'Ruby on Rails' do
     it{
         expect(salario).to be_between(0, 10000)
     }
-
-    def salario
-        5000
-    end
   
 end
