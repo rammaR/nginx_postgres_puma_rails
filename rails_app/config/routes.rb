@@ -1,6 +1,10 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  get 'reports/index'
+
+  get 'reports/create'
+
   resources :users
   resources :cookies
   get 'home/index'
