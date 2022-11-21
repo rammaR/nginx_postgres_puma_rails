@@ -24,7 +24,7 @@ services:
 
   sidekiq:
     build: .
-    command: bundle exec sidekiq
+    command: bundle exec sidekiq -q reports -c 8
     volumes:
       - ./rails_app:/rails_app
     env_file:
