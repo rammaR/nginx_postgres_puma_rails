@@ -3,6 +3,11 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
   
+  resources :mining_types
+  resources :coins
+
+  get 'home/index'
+  
   resources :reports, only: [:index, :create]
   resources :users
   resources :cookies

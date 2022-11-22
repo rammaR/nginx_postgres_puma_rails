@@ -12,4 +12,6 @@
  *
  *= require_tree .
  *= require_self
+ *= require tachyons/css/tachyons.min.css
+ *= require bootstrap/dist/css/bootstrap.min.css
  */

@@ -17,7 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
+  host: <%= ENV['RAILS_APP_DATABASE_HOST'] %>
   username: <%= ENV['RAILS_APP_DATABASE_USER'] %>
   password: <%= ENV['RAILS_APP_DATABASE_PASSWORD'] %>
   # For details on connection pooling, see Rails configuration guide
@@ -84,5 +84,4 @@ test:
 production:
   <<: *default
   database: rails_app_production
-  username: <%= ENV['RAILS_APP_DATABASE_USER'] %>
-  password: <%= ENV['RAILS_APP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

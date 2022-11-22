@@ -1,2 +1,4 @@
 postgres/
 .env
+/rails_app/node_modules
+/rails_app/public/assets/*

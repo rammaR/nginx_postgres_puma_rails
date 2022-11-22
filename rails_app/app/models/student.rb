@@ -16,4 +16,7 @@ class Student
     def bater_ponto(matriula)
         ###
     end
+
+    def triste()
+    end
 end

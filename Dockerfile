@@ -3,7 +3,10 @@
 FROM ruby:2.5
 
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client && apt-get clean \ && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update -qq && apt-get install -y nodejs \
+    postgresql-client && apt-get clean \ && rm -rf /var/lib/apt/lists/*
+
 RUN npm install -g yarn@1
 
 RUN mkdir rails_app
@@ -23,4 +26,7 @@ RUN bundle install
 EXPOSE 3000
 
 # RUN SECRET_KEY_BASE=1 RAILS_ENV=production bundle exec rake assets:precompile
+
+# RUN bundle exec spring binstub --all
+
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]

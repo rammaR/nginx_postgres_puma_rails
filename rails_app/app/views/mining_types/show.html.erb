@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+  <div class='card-header'>
+    <strong>Name:</strong>
+    <%= @mining_type.name %>
+  </div>
+
+  <div class='card-body'>
+    <strong>Acronym:</strong>
+    <%= @mining_type.acronym %>
+  </div>
+</div>
+
+<hr>
+
+<%= link_to 'Edit', edit_mining_type_path(@mining_type) %> |
+<%= link_to 'Back', mining_types_path %>

@@ -1,3 +1,4 @@
 Dockerfile
 docker-compose
 .env
+/rails_app/node_modules

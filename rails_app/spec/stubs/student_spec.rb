@@ -1,3 +1,4 @@
+require 'rails_helper'
 require 'Student'
 require 'Course'
 
@@ -7,15 +8,14 @@ describe "Students and Courses Stubs", type: :stubs do
         student = Student.new
         course = Course.new
 
-        allow(student).to receive(:has_finished?)
-            .with(an_instance_of(Course))
-            .and_return(true)
+        allow(student).to receive(:has_finished?).with(an_instance_of(Course)).and_return(true)
 
-        course_finished = student.has_finished?(course)
-        expect(course_finished).to be_truthy
-    end
+        couse_finished = student.has_finished?(course)
 
-    it 'Argumentos dinâmicos' do
+        expect(couse_finished).to be_truthy
+    end 
+
+    it '#Argumentos dinâmicos' do
         student = Student.new
 
         allow(student).to receive(:foo) do |arg|
@@ -28,9 +28,9 @@ describe "Students and Courses Stubs", type: :stubs do
 
         expect(student.foo(:hello)).to eq('Olá')
         expect(student.foo(:hi)).to eq("Hi")
-    end
+    end 
 
-    it 'Qualquer instancia de Classe' do
+    it '#Qualquer instancia de Classe' do
         student = Student.new
         other_student = Student.new
 
@@ -40,7 +40,16 @@ describe "Students and Courses Stubs", type: :stubs do
         expect(other_student.bar).to be_truthy
     end
 
-    it 'Should trigger errors' do
+    it '#Estudante mockado' do
+        stu = Student.new
+        other = Student.new
+
+        allow_any_instance_of(Student).to receive(:triste).and_return('Triste')
+
+        expect(stu.triste).to eq('Triste')
+    end
+
+    it '#Should trigger errors' do
         student = Student.new
 
         allow(student).to receive(:bar).and_raise(RuntimeError)

@@ -14,7 +14,7 @@ class FilterObscenity < ActiveJob::Base
 
     private
         def sanitize(str)
-            BLACKLIST.each do |bad, good| do
+            BLACKLIST.each do |bad, good|
                 str.gsub!(bad, good)
             end
 

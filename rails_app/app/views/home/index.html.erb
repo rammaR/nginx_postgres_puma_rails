@@ -1,10 +1,13 @@
-<h1>Seja Bem-Vindo!</h1>
-<hr/>
-<ul>
-<li>
-    <%= link_to "Cadastro de Usuários", users_path %>
-</li>
-</ul>
-<hr/>
+    <div class="jumbotron">
+        <h1> Aplicação de Criptmoedas </h1>
+    </div>
 
-<p>Você está em ambiente de [<strong><%= Rails.env %></strong>]</p>
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+            <%= link_to "Usuários", users_path, class: "navbar-brand" %>
+
+            <%= link_to "Moedas", coins_path, class: "navbar-brand" %>
+
+            <%= link_to "Tipos de Mineração", mining_types_path, class: "navbar-brand" %>
+        </div>
+    </nav>
