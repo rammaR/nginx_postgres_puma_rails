@@ -3,5 +3,9 @@ FactoryBot.define do
     name Faker::Name.name
     lastname Faker::Name.name
     email Faker::Internet.email
+
+    factory :admin do
+      name 'Admin'
+    end
   end
 end

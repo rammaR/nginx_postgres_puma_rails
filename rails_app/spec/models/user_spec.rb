@@ -32,4 +32,9 @@ RSpec.describe User do
     user = create(:customer, name: 'Admin')
     expect(user.name).to eq('Admin')
   end
+
+  it 'Usuário Admin tem o nome admin' do
+    user = create(:admin)
+    expect(user.name).to eq('Admin')
+  end
 end
