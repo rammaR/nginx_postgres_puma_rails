@@ -1,6 +1,10 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  get 'post/index'
+
+  get 'post/edit'
+
   mount Sidekiq::Web => '/sidekiq'
   
   resources :mining_types

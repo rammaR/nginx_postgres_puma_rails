@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221122160314) do
+ActiveRecord::Schema.define(version: 20221122205908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20221122160314) do
     t.string "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
+    t.datetime "published_at"
   end
 
   create_table "arvores", force: :cascade do |t|
@@ -36,6 +38,12 @@ ActiveRecord::Schema.define(version: 20221122160314) do
   end
 
   create_table "calculators", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -93,6 +101,15 @@ ActiveRecord::Schema.define(version: 20221122160314) do
     t.string "content"
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "description"
+    t.decimal "price"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
   create_table "publications", force: :cascade do |t|
     t.integer "status", default: 0
     t.integer "integer", default: 0
@@ -116,4 +133,5 @@ ActiveRecord::Schema.define(version: 20221122160314) do
   end
 
   add_foreign_key "coins", "mining_types"
+  add_foreign_key "products", "categories"
 end
