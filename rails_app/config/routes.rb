@@ -1,11 +1,10 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  get 'password_resets/new'
-
   get 'post/index'
   get 'post/edit'
   get 'home/index'
+
   # Autenticação
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'

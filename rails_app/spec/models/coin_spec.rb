@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Coin, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'Coin has to have a name' do
+    coin = Coin.new
+    coin.name = 'name'
+    expect(coin.name).to  eq('name')
+  end
 end
