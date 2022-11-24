@@ -33,3 +33,5 @@ en:
   hello: "Hello world"
   links:
     back: "Voltar"
+  users:
+    title: "Usuários"
