@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
+  devise_for :profiles
+  devise_for :admins
 
   resources :reports, only: [:index, :create]
   resources :users
