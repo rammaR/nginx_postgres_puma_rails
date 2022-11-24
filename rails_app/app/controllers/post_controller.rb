@@ -1,6 +1,6 @@
 class PostController < ApplicationController
 
-    http_basic_authenticate_with name: 'dh', password: 'secret', except: :index
+    before_filter :authorize, only: [:edit]
 
     def index
         render plain: 'Everyone can see me!'

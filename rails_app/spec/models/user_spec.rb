@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe User do
-  it "eh valido quando contem o primeiro nome, sobrenome e email" do
+  it "É válido quando contêm o primeiro nome, sobrenome e email" do
     user = create(:user, name: 'Bruce')
     
     expect(user).to be_valid
     expect(user.name).to eq('Bruce')
   end
 
-  it "eh invalido sem o primeiro nome" do
+  it "É inválido sem o primeiro nome" do
     user = User.new(name: nil)
     user.valid?
     expect(user.errors[:name]).to include("can't be blank")
@@ -22,11 +22,12 @@ RSpec.describe User do
     expect(user.email).not_to eq("")
   end
 
-  it {
-    expect{
-      create(:user).to change{ User.all.size }.by(1)
-    }
-  }
+  it '---' do
+    user = for_attributes(:user)
+    puts user
+  end
+
+  it { expect{ create(:user).to change{ User.all.size }.by(1) } }
 
   it 'Deve haver um usuario admin' do
     user = create(:customer, name: 'Admin')
