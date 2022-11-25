@@ -24,7 +24,7 @@ services:
 
   sidekiq:
     build: .
-    command: bundle exec sidekiq -q reports -c 8
+    command: bundle exec sidekiq
     volumes:
       - ./rails_app:/rails_app
     env_file:
@@ -35,7 +35,6 @@ services:
       - redis
 
   web:
-    image: nginx
     build:
       context: .
       dockerfile: ./nginx/Dockerfile

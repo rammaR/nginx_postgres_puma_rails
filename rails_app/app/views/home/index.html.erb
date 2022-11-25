@@ -1,5 +1,9 @@
+
     <div class="jumbotron">
         <h1> Aplicação de Criptmoedas </h1>
+        <% if current_profile %>
+            <p> <%= "Olá #{current_profile}" %> </p>
+        <% end %>
     </div>
 
     <nav class="navbar bg-light">
@@ -8,6 +12,8 @@
 
             <%= link_to "Moedas", coins_path, class: "navbar-brand" %>
 
-            <%= link_to "Tipos de Mineração", mining_types_path, class: "navbar-brand" %>
+            <% if profile_signed_in? %>
+                <%= link_to "Tipos de Mineração", mining_types_path, class: "navbar-brand" %>
+            <% end %>
         </div>
     </nav>

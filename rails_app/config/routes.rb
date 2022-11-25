@@ -1,6 +1,12 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  #get 'customer/index'
+
+  devise_for :members
+  devise_for :profiles
+  devise_for :admins
+
   get 'post/index'
   get 'post/edit'
   get 'home/index'
@@ -9,8 +15,6 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
-  devise_for :profiles
-  devise_for :admins
 
   resources :reports, only: [:index, :create]
   resources :users
@@ -19,6 +23,7 @@ Rails.application.routes.draw do
   resources :mining_types
   resources :coins
   resources :password_resets
+  resources :customer
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'home#index'
