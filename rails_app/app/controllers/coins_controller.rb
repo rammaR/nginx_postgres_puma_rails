@@ -1,10 +1,11 @@
 class CoinsController < ApplicationController
+  
   before_action :authenticate_member!, except: %i[:index]
   before_action :set_coin, only: %i[ show edit update destroy ]
   before_action :set_mining_type_options, only:%i[:new, :edit, :update, :create]
 
   # GET /coins or /coins.json
-  def index
+  def index    
     @coins = Coin.all
   end
 
