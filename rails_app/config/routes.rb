@@ -2,6 +2,10 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   
+  namespace :admin_backoffice do
+    get 'welcome/index'
+  end
+
   namespace :user_backoffice do
     get 'welcome/index'
   end
@@ -10,6 +14,7 @@ Rails.application.routes.draw do
     get 'welcome/index'
   end
 
+  devise_for :admins
   devise_for :members
 
   get 'post/index'

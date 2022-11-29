@@ -17,17 +17,6 @@
 
       <div class="header">
         <ul class="nav justify-content-end">
-          <% if current_user %>
-            <li class="nav-item">
-                Logged in as <%= current_user.name %>
-                <%= link_to "Log Out", logout_path %>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "Sign Up", signup_path %>
-              <%= link_to "Log In", login_path %>
-            </li>
-          <% end %>
 
           <li class="nav-item">
             <%= link_to 'Português', root_path(locale: 'pt-BR'), class: 'nav-link' %>

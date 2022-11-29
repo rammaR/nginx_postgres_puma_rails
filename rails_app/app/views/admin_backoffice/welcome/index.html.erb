@@ -1,0 +1,4 @@
+<h1>AdminBackoffice::Welcome <%= current_admin.email if admin_signed_in? %></h1>
+<p>Find me in app/views/admin_backoffice/welcome/index.html.erb</p>
+
+<%= link_to 'Fazer logoff', destroy_admin_session_path, method: :delete %>
