@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
-//= require_tree .
-//= require bootstrap/dist/js/bootstrap.min.js
 //= require jquery/dist/jquery.min.js
 //= require popper.js/dist/popper.min.js
 //= require notify-js-legacy/notify.js
+//= require jquery-easing/dist/jquery.easing.1.3.umd.min.js
+//= require bootstrap/dist/js/bootstrap.min.js
+//= require sb-admin-2.min.js

@@ -2,8 +2,10 @@
   "name": "rails_app",
   "private": true,
   "dependencies": {
-    "bootstrap": "^5.2.2",
-    "jquery": "^3.6.1",
+    "bootstrap": "4.6.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "3.6.0",
+    "jquery-easing": "^0.0.1",
     "notify-js-legacy": "^0.4.1",
     "popper.js": "^1.16.1",
     "tachyons": "^4.12.0"

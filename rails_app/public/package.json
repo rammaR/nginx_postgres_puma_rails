@@ -2,5 +2,8 @@
   "name": "public",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "fontawesome-free": "^1.0.4"
+  }
 }
