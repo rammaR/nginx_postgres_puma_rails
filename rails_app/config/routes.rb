@@ -1,7 +1,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  namespace :profiles_backoffice do
+  
+  namespace :user_devise_backoffice do
     get 'welcome/index'
   end
 
@@ -12,8 +13,8 @@ Rails.application.routes.draw do
   #get 'customer/index'
 
   devise_for :members
-  devise_for :profiles
   devise_for :admins
+  devise_for :user_devises
 
   get 'post/index'
   get 'post/edit'
