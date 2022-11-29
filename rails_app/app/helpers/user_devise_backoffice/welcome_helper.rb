@@ -1,2 +1,0 @@
-module UserDeviseBackoffice::WelcomeHelper
-end
