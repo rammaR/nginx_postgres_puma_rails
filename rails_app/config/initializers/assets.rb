@@ -15,3 +15,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w( admin_backoffice.js admin_backoffice.css )
 
 Rails.application.config.assets.precompile += %w( sb-admin-2.min.js sb-admin-2.min.css )
+
+Rails.application.config.assets.precompile += %w( user_backoffice.js user_backoffice.css )
+
+Rails.application.config.assets.precompile += %w( gentetella.min.css gentetella.min.js )

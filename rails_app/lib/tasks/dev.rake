@@ -9,7 +9,7 @@ namespace :dev do
       show_spinner("Criando BD...") { %x(rails db:create) }
       show_spinner("Migrando BD...") { %x(rails db:migrate) }
       show_spinner("Cadastrando usuário admin") { %x(rails dev:add_default_admin) }
-     # show_spinner("Cadastrando usuário user") { %x(rails dev:add_default_user) }
+      show_spinner("Cadastrando usuário user") { %x(rails dev:add_default_user) }
     else
       puts "Você não esta em ambiente de desenvolvimento!"
     end
