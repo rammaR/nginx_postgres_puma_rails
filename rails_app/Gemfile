@@ -53,6 +53,7 @@ group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'rails-controller-testing'
+  gem 'pry-rails'
 end
 
 group :development do

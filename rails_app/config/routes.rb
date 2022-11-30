@@ -2,6 +2,10 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   
+  namespace :admin_backoffice do
+    get 'admin_control/index'
+  end
+
   namespace :user_backoffice do
     get 'welcome/index'
   end

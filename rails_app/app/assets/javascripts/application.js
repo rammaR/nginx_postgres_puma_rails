@@ -11,7 +11,8 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require popper.js/dist/popper.min.js
 //= require jquery/dist/jquery.min.js
 //= require notify-js-legacy/notify.js
+//= require popper.js/dist/popper.min.js
+//= require popper.js/dist/popper.js
 //= require bootstrap/dist/js/bootstrap.min.js
