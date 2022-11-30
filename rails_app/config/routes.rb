@@ -6,23 +6,18 @@ Rails.application.routes.draw do
     get 'welcome/index'
   end
 
-  namespace :user_backoffice do
-    get 'welcome/index'
-  end
+  #get 'customer/index'
 
-  namespace :admins_backoffice do
-    get 'welcome/index'
-  end
-
-  devise_for :admins
   devise_for :members
+  devise_for :admins
 
   get 'post/index'
   get 'post/edit'
   get 'home/index'
 
   resources :reports, only: [:index, :create]
-  resources :users
+  # resources :users
+  # resources :sessions
   resources :cookies
   resources :mining_types
   resources :coins
