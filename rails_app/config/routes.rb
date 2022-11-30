@@ -3,22 +3,13 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   
   namespace :admin_backoffice do
-    get 'admin_control/index'
+    get 'welcome/index'
+    resources :admin_control, only: [ :index, :edit, :update ]
   end
 
   namespace :user_backoffice do
     get 'welcome/index'
   end
-
-  namespace :admin_backoffice do
-    get 'welcome/index'
-  end
-
-  namespace :user_backoffice do
-    get 'welcome/index'
-  end
-
-  #get 'customer/index'
 
   devise_for :members
   devise_for :admins
