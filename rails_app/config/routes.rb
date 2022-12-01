@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :user_backoffice do
     get 'welcome/index'
+    resources :customers
   end
 
   devise_for :members
@@ -26,7 +27,6 @@ Rails.application.routes.draw do
   resources :mining_types
   resources :coins
   resources :password_resets
-  resources :customer
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'home#index'
