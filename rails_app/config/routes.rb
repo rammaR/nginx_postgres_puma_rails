@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   namespace :admin_backoffice do
     get 'welcome/index'
-    resources :admin_control, only: [ :index, :edit, :update ]
+    resources :admin_control
   end
 
   namespace :user_backoffice do

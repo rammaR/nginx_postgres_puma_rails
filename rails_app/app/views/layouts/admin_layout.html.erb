@@ -129,19 +129,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-            
-                  <p class="notice"> <%= notice %> </p>
-                  <p class="alert"> <%= alert %> </p>
-            
-                  <div class="header">
-                    <h1>
-                        Admins Layout Backoffice
-                    </h1>
-
-                    <ul class="nav justify-content-end">
-                    </ul>
-                  </div>
-            
+                        
                   <%= yield %>
 
                 <!-- /.container-fluid -->
@@ -192,6 +180,17 @@
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'admin_backoffice' %>
+
+    <% if notice %>
+        <%= javascript_tag do %>
+            $.bootstrapGrowl('<%= notice %>', {
+                type: 'success',
+                align: 'right',
+                allow_dismiss: true,
+                stackup_spacing: 10
+            });
+        <% end %>
+    <% end %>    
 </body>
 
 </html>

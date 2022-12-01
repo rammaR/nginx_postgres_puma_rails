@@ -13,6 +13,11 @@
                 <th>#</th>
                 <th>Email</th>
                 <th></th>
+                <th>
+                    <%= link_to new_admin_backoffice_admin_control_path, class: 'btn btn-success btn-circle' do %>
+                        <i class="fa fa-plus"></i>
+                    <% end %>
+                </th>
             </tr>
         </thead>
         <% @admins.each do |admin| %>
@@ -23,10 +28,11 @@
                     <%= link_to edit_admin_backoffice_admin_control_path(admin.id), class: 'btn btn-primary btn-circle' do %>
                         <i class="fa fa-edit"></i>
                     <% end %>
-
-                    <button class="btn btn-danger btn-circle" type="button">
+                </td>
+                <td style="width: 100px">
+                    <%= link_to admin_backoffice_admin_control_path(admin.id), method: :delete, class: 'btn btn-danger btn-circle', data: {confirm: "Deseja realmente excluir esse administrador?"} do %>
                         <i class="fa fa-minus"></i>
-                    </button>
+                    <% end %>
                 </td>
             </tr>
         <% end %>
