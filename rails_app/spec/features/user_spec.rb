@@ -15,5 +15,4 @@ describe "The signin process", type: :feature do
 
         expect(page).to have_content 'Success'
     end
-
 end

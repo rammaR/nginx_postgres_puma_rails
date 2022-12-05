@@ -11,6 +11,9 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
+require 'capybara/rails'
+# require 'capybara/rspec'
+
 include Warden::Test::Helpers
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -41,6 +44,13 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
+
+  #config.before(:each, type: :system, js: true) do
+    #driven_by :selenium_chrome_in_container
+    #Capybara.server_host = "0.0.0.0"
+    #Capybara.server_post = 4000
+    #Capybara.app_host = 'http://web:4000'
+  #end
   
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

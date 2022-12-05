@@ -14,8 +14,6 @@
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-require 'capybara/rspec'
-
 RSpec.configure do |config|
   
   # rspec-expectations config goes here. You can use an alternate
@@ -95,4 +93,6 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  # Capybara.default_driver = :selenium # :selenium_chrome and :selenium_chrome_headless are also registered
 end
