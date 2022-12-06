@@ -2,7 +2,7 @@
 
 class DeviseCreateAdmins < ActiveRecord::Migration[5.1]
   def change
-    #drop_table :admins
+    drop_table :admins
     
     create_table :admins do |t|
       ## Database authenticatable

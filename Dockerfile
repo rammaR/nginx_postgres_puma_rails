@@ -17,8 +17,6 @@ COPY rails_app/Gemfile.lock /rails_app/Gemfile.lock
 
 RUN bundle install
 
-RUN .env
-# RUN /bin/bash -c 'source $HOME/.bashrc; echo $HOME'
 # Add a script to be executed every time the container starts.
 # COPY rails_app/entrypoint.sh /usr/bin/
 # RUN chmod +x /usr/bin/entrypoint.sh
