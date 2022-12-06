@@ -84,4 +84,3 @@ test:
 production:
   <<: *default
   database: rails_app_production
-  url: <%= ENV['DATABASE_URL'] %>

@@ -84,4 +84,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include Warden::Test::Helpers
+
+  #FactoryBot Lint
+  # config.before(:suite) do FactoryBot.lint end
 end

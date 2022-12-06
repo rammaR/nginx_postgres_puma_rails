@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221201171506) do
+ActiveRecord::Schema.define(version: 20221206010911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,14 @@ ActiveRecord::Schema.define(version: 20221201171506) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "description"
+    t.bigint "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
+
   create_table "pessoas", force: :cascade do |t|
     t.string "name"
     t.string "age"
@@ -126,6 +134,8 @@ ActiveRecord::Schema.define(version: 20221201171506) do
     t.string "birthday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "vip"
+    t.integer "days_to_pay"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -141,6 +151,7 @@ ActiveRecord::Schema.define(version: 20221201171506) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sequence"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
@@ -172,5 +183,6 @@ ActiveRecord::Schema.define(version: 20221201171506) do
 
   add_foreign_key "coins", "mining_types"
   add_foreign_key "comments", "posts"
+  add_foreign_key "orders", "customers"
   add_foreign_key "products", "categories"
 end

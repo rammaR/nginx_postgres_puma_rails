@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 class DeviseCreateAdmins < ActiveRecord::Migration[5.1]
-  def change
-    drop_table :admins
-    
+  def change    
     create_table :admins do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""

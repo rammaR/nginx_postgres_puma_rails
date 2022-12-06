@@ -2,12 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
   
-  subject { create(:product) } 
+  subject { build(:product) } 
 
   context "Is valid " do
       
     it 'with description, price and category' do
-        # product = create(:product)
         expect(subject).to  be_valid
     end
     
@@ -17,6 +16,10 @@ RSpec.describe Product, type: :model do
       expect(subject.category).to be_valid
       expect(subject.category.errors.size).to be <= 0
       expect(subject.category).to be_instance_of(Category)
+    end
+
+    it 'when it obey a sequence' do
+      expect(subject.sequence).to be == 4
     end
 
   end

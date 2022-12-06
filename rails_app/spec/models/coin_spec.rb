@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Coin, type: :model do
-  it 'Coin has to have a name' do
+  it 'has to have a description' do
     coin = Coin.new
-    coin.name = 'name'
-    expect(coin.name).to  eq('name')
+    coin.description = 'name'
+    expect(coin.description).to eq('name')
   end
 end
