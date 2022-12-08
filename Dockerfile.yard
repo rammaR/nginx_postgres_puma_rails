@@ -1,0 +1,9 @@
+FROM ruby:latest
+
+RUN gem install yard
+
+RUN mkdir /yard_app
+WORKDIR /yard_app
+VOLUME /yard_app
+
+CMD yard server --reload

@@ -5,6 +5,7 @@ FROM ruby:2.5
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 
 RUN apt-get update -qq && apt-get install -y nodejs \
+    rdoc \
     postgresql-client && apt-get clean \ && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g yarn@1
