@@ -44,6 +44,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
+  config.include ActiveSupport::Testing::TimeHelpers
 
   #config.before(:each, type: :system, js: true) do
     #driven_by :selenium_chrome_in_container
