@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20221206010911) do
+ActiveRecord::Schema.define(version: 20221210215156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,20 @@ ActiveRecord::Schema.define(version: 20221206010911) do
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
+  create_table "menu_categories", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "menu_items", force: :cascade do |t|
+    t.string "description"
+    t.bigint "menu_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_category_id"], name: "index_menu_items_on_menu_category_id"
+  end
+
   create_table "mining_types", force: :cascade do |t|
     t.string "name"
     t.string "acronym"
@@ -188,6 +202,7 @@ ActiveRecord::Schema.define(version: 20221206010911) do
 
   add_foreign_key "coins", "mining_types"
   add_foreign_key "comments", "posts"
+  add_foreign_key "menu_items", "menu_categories"
   add_foreign_key "orders", "customers"
   add_foreign_key "products", "categories"
 end
