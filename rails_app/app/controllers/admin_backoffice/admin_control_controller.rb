@@ -4,7 +4,9 @@ class AdminBackoffice::AdminControlController < AdminBackofficeController
   before_action :set_admin, only: [:edit, :update, :destroy]
 
   def index
-    @admins = Admin.all
+    #@admins = Admin.all
+    # @admins = Admin.order(:email).page params[:page]
+    @admins = Admin.all.page(params[:page]).per(5)
   end
 
   def edit    

@@ -37,4 +37,8 @@
             </tr>
         <% end %>
     </table>
+
+    <div class="text-center">
+        <%= paginate @admins, window: 2, param_name: :pagina %>
+    </div>
 </div>

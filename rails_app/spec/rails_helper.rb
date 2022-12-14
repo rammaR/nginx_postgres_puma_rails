@@ -88,11 +88,4 @@ RSpec.configure do |config|
 
   #FactoryBot Lint
   # config.before(:suite) do FactoryBot.lint end
-
-  Shoulda::Matchers.configure do |config|
-    config.integrate do |with|
-      with.test_framework :rspec
-      with.library :rails
-    end
-  end
 end
