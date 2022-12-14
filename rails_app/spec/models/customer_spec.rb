@@ -31,4 +31,18 @@ RSpec.describe Customer, type: :model do
       expect(customer.errors).to have_key(:email)
     end
   end
+
+  it 'travel to' do
+    travel_to Time.zone.local(2004, 11, 24, 01, 04, 44) do
+      @customer = create(:customer)
+    end
+    
+    expect(@customer.created_at).to eq(Time.zone.local(2004, 11, 24, 01, 04, 44))
+  end
+
+  it 'can`t update before create' do
+    @customer = create(:customer)
+
+    expect(@customer.created_at).to be <= @customer.updated_at
+  end
 end

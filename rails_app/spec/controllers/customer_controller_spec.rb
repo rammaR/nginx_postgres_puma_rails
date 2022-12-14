@@ -63,9 +63,6 @@ RSpec.describe CustomerController, type: :controller do
                     expect(response.content_type).to eq('application/json')
                 end
             end
-
-
         end
     end
-
 end

@@ -11,9 +11,7 @@ RSpec.feature "Customers", type: :feature do
     it 'should appear index' do
       # visit - capybara command to simulate an user visiting a page
       visit(user_backoffice_customers_path)
-
       #save_and_open_page
-      
       # page - represents the visited page
       # expected to page have the same url of the test case
       expect(page).to have_current_path(user_backoffice_customers_path)
