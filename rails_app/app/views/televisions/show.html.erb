@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Screen:</strong>
+  <%= @television.screen %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @television.type %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @television.price %>
+</p>
+
+<%= link_to 'Edit', edit_television_path(@television) %> |
+<%= link_to 'Back', televisions_path %>

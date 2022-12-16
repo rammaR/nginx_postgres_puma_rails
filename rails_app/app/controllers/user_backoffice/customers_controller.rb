@@ -9,7 +9,6 @@ class UserBackoffice::CustomersController < UserBackofficeController
 
   # GET /customers/1 or /customers/1.json
   def show
-    #@customer = Customer.find(params[:id])
   end
 
   # GET /customers/new
@@ -19,7 +18,6 @@ class UserBackoffice::CustomersController < UserBackofficeController
 
   # GET /customers/1/edit
   def edit
-    #@customer = Customer.find(params[:id])
   end
 
   # POST /customers or /customers.json
@@ -34,6 +32,13 @@ class UserBackoffice::CustomersController < UserBackofficeController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def redirect_to_customers
+    respond_to do |format|
+        format.html { redirect_to user_backoffice_customers_path, notice: "Customer was successfully updated." }
+        format.json { render :show, status: :ok, location: @customer }
     end
   end
 

@@ -1,12 +1,13 @@
-<%= form_with(model: customer, url: user_backoffice_customers_path, local: true) do |form| %>
-  <% if customer.errors.any? %>
+<%= form_for @customer, url: user_backoffice_customer_path, local: true do |form| %>
+
+  <% if @customer.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+      <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
 
       <ul>
-      <% customer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @customer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -40,4 +41,5 @@
   <div class="actions">
     <%= form.submit "Salvar novo cliente", class: 'btn btn-secondary' %>
   </div>
+
 <% end %>

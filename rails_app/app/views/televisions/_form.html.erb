@@ -1,0 +1,32 @@
+<%= form_with(model: television, local: true) do |form| %>
+  <% if television.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(television.errors.count, "error") %> prohibited this television from being saved:</h2>
+
+      <ul>
+      <% television.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :screen %>
+    <%= form.text_field :screen, id: :television_screen %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.number_field :type, id: :television_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :television_price %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

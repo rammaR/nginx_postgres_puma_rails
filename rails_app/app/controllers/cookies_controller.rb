@@ -21,15 +21,15 @@ class CookiesController < ApplicationController
 
   # POST /cookies or /cookies.json
   def create
-    @cooky = Cookie.new(cooky_params)
+    @cookie = Cookie.new(cookie_params)
 
     respond_to do |format|
       if @cooky.save
-        format.html { redirect_to cooky_url(@cooky), notice: "Cookie was successfully created." }
-        format.json { render :show, status: :created, location: @cooky }
+        format.html { redirect_to cookie_url(@cookie), notice: "Cookie was successfully created." }
+        format.json { render :show, status: :created, location: @cookie }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @cooky.errors, status: :unprocessable_entity }
+        format.json { render json: @cookie.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -37,9 +37,9 @@ class CookiesController < ApplicationController
   # PATCH/PUT /cookies/1 or /cookies/1.json
   def update
     respond_to do |format|
-      if @cooky.update(cooky_params)
-        format.html { redirect_to cooky_url(@cooky), notice: "Cookie was successfully updated." }
-        format.json { render :show, status: :ok, location: @cooky }
+      if @cooky.update(cookie_params)
+        format.html { redirect_to cooky_url(@cookie), notice: "Cookie was successfully updated." }
+        format.json { render :show, status: :ok, location: @cookie }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @cooky.errors, status: :unprocessable_entity }
@@ -64,7 +64,7 @@ class CookiesController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def cooky_params
-      params.require(:cooky).permit(:flavor, :price)
+    def cookie_params
+      params.require(:cookie).permit(:flavor, :price)
     end
 end
