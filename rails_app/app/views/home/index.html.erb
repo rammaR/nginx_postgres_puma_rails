@@ -1,10 +1,13 @@
 
     <div class="jumbotron">
-        <h1> Aplicação de Criptmoedas </h1>
+        <h1>Aplicação de Criptomoedas</h1>
     </div>
 
     <nav class="navbar bg-light">
         <div class="container-fluid">
-            <%= link_to "Moedas", coins_path, class: "navbar-brand" %>
+            <ul class='nav-menu'>
+                <li> <%= link_to "Cadastro de Clientes", user_backoffice_customers_path, class: "navbar-brand" %> </li>
+                <li> <%= link_to "Moedas", coins_path, class: "navbar-brand" %> </li>
+            </ul>
         </div>
     </nav>

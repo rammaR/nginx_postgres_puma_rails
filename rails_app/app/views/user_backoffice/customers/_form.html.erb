@@ -26,7 +26,18 @@
     <%= form.text_field :address, id: :customer_address %>
   </div>
 
+  <div class="field">
+    <%= form.label :profile %>
+    <%= form.file_field :profile, id: :customer_profile %>
+  </div>
+
+  <div class="field">
+    <% {'S': 'Sim', 'N': 'Não'}.each do |key, value| %> <br/>
+      <%= form.radio_button :smoking, key %> <%= value %> <br/>
+    <% end %>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Salvar novo cliente", class: 'btn btn-secondary' %>
   </div>
 <% end %>

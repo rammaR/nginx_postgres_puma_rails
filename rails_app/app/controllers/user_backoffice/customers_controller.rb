@@ -9,6 +9,7 @@ class UserBackoffice::CustomersController < UserBackofficeController
 
   # GET /customers/1 or /customers/1.json
   def show
+    #@customer = Customer.find(params[:id])
   end
 
   # GET /customers/new
@@ -18,6 +19,7 @@ class UserBackoffice::CustomersController < UserBackofficeController
 
   # GET /customers/1/edit
   def edit
+    #@customer = Customer.find(params[:id])
   end
 
   # POST /customers or /customers.json
@@ -39,7 +41,7 @@ class UserBackoffice::CustomersController < UserBackofficeController
   def update
     respond_to do |format|
       if @customer.update(customer_params)
-        format.html { redirect_to customer_url(@customer), notice: "Customer was successfully updated." }
+        format.html { redirect_to user_backoffice_customers_path, notice: "Customer was successfully updated." }
         format.json { render :show, status: :ok, location: @customer }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +55,7 @@ class UserBackoffice::CustomersController < UserBackofficeController
     @customer.destroy
 
     respond_to do |format|
-      format.html { redirect_to customers_url, notice: "Customer was successfully destroyed." }
+      format.html { redirect_to action: "index", notice: "Customer was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -66,6 +68,6 @@ class UserBackoffice::CustomersController < UserBackofficeController
 
     # Only allow a list of trusted parameters through.
     def customer_params
-      params.require(:customer).permit(:name, :email, :address)
+      params.require(:customer).permit(:name, :email, :address, :profile, :smoking)
     end
 end
