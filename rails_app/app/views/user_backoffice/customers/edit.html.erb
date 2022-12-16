@@ -1,6 +1,6 @@
-<h1>Editing Customer</h1>
+<h1>Editando cliente <%= @customer.id %></h1>
 
 <%= render 'form', customer: @customer %>
 
-<%= link_to 'Show', user_backoffice_customers_path(@customer.id) %> |
-<%= link_to 'Back', user_backoffice_customers_path %>
+<%= link_to 'Show', customer_path(@customer.id) %> |
+<%= link_to 'Back', customers_path %>

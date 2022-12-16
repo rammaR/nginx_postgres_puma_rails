@@ -9,9 +9,16 @@ Rails.application.routes.draw do
 
   namespace :user_backoffice do
     get 'welcome/index'
+  end
+
+  #resources :pencils, path: '/user_backoffice/pencils'
+
+  scope module: :user_backoffice do
+    resources :pencils
     resources :customers
   end
 
+  
   devise_for :members
   devise_for :admins
   devise_for :users

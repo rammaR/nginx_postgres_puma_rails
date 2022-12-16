@@ -34,7 +34,7 @@ RSpec.feature "Customers", type: :feature do
     end
 
     scenario "Não deve permitir cadastro inválido" do
-      visit(new_user_backoffice_customer_path)
+      visit(new_customer_path)
 
       click_button('Salvar novo cliente')
 
@@ -45,7 +45,7 @@ RSpec.feature "Customers", type: :feature do
 
     scenario 'Mostra um cliente' do
       customer = create(:customer)
-      visit(user_backoffice_customer_path(customer.id))
+      visit(customer_path(customer.id))
       expect(page).to have_content(customer.name)
     end
 
@@ -53,7 +53,7 @@ RSpec.feature "Customers", type: :feature do
       customerA = create(:customer)
       customerB = create(:customer)
       customerC = create(:customer)
-      visit(user_backoffice_customers_path)
+      visit(customers_path)
       expect(page).to have_content(customerA.name).and have_content(customerB.name).and have_content(customerC.name)
     end
 
@@ -61,10 +61,11 @@ RSpec.feature "Customers", type: :feature do
       customer = create(:customer)
       new_name = Faker::Name.name
       
-      visit(edit_user_backoffice_customer_path(customer.id))
+      visit(edit_customer_path(customer.id))
       fill_in('Name', with: new_name)
+      click_button('Salvar novo cliente')
 
-      expect(page).to have_content("Customer was successfully updated")
+      expect(page).to have_content(new_name)
     end
   end
 end

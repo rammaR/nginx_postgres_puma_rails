@@ -69,13 +69,6 @@ services:
       - RAILS_ENV=${RAILS_ENV}
     command: bundle exec guard --no-bundler-warning --no-interactions
 
-  yardoc:
-    ports: 
-      - "8808:8808" 
-    volumes:
-      - /rails_app:/app 
-    image: biola/yard
-
 volumes:
   redis:
   postgres:

@@ -1,0 +1,22 @@
+<%= form_with model:@pencil, local: true do |form| %>
+  <% if pencil.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pencil.errors.count, "error") %> prohibited this pencil from being saved:</h2>
+
+      <ul>
+      <% pencil.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :pencil_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

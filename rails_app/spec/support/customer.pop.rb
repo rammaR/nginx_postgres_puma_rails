@@ -12,7 +12,7 @@ class NewCustomerForm
     end
 
     def visit_page
-        visit(new_user_backoffice_customer_path)
+        visit(new_customer_path)
         self
     end
 
