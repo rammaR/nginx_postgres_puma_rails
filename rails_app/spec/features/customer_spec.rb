@@ -67,5 +67,21 @@ RSpec.feature "Customers", type: :feature do
 
       expect(page).to have_content(new_name)
     end
+
+    scenario 'Clica no link Mostrar' do
+      customer = create(:customer)
+      visit(customers_path)
+      find(:xpath, "/html/body[@class='nav-md']/div[@class='container body']/div[@class='main_container']/div[@class='right_col']/div/div[@class='page-title']/div[@class='title_left']/div[@class='container']/table[@class='table table-striped']/tbody/tr[1]/td[4]/a").click
+
+      expect(page).to have_content("Mostrando Cliente")
+    end
+
+    scenario 'Clica no link Editar' do
+      customer = create(:customer)
+      visit(customers_path)
+      find(:xpath, "/html/body[@class='nav-md']/div[@class='container body']/div[@class='main_container']/div[@class='right_col']/div/div[@class='page-title']/div[@class='title_left']/div[@class='container']/table[@class='table table-striped']/tbody/tr[1]/td[5]/a").click
+
+      expect(page).to have_content("Editando cliente")
+    end
   end
 end
